@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 영어폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- 첫화면 -->
+      <div class="main">
+        <ul class="logo">
+          <li>
+            <img src="img/eunha.png" />
+            <img src="img/GAME.png" />
+          </li>
+        </ul>
+        <button id="startBtn">START</button>
+      </div>
+
+      <!-- 메인화면 -->
+      <div class="container">
+        <h3>숫자 맞추기 게임</h3>
+        <div class="img-box">
+          <img id="gameImg" src="img/ready.gif" alt="게임 이미지" />
+        </div>
+        <div id="result">UP / DOWN / BINGO</div>
+        <div id="chance">
+          <span class="heart">❤️</span>
+          <span class="heart">❤️</span>
+          <span class="heart">❤️</span>
+          <span class="heart">❤️</span>
+          <span class="heart">❤️</span>
+        </div>
+        <input id="user" type="number" placeholder="1~100 맞춰보세요" />
+        <div class="button-group">
+          <button id="play">시작</button>
+          <button id="reset">재시작</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 게임오버 화면 -->
+    <div class="gameover-screen" id="gameoverScreen">
+      <div class="gameover-title">GAME OVER</div>
+      <div class="gameover-text">😢</div>
+      <div class="gameover-text">정답은</div>
+      <div class="gameover-answer" id="gameoverAnswer">0</div>
+      <button class="gameover-button" id="gameoverRestart">재시작</button>
+    </div>
+
+    <script src="custom.js"></script>
+  </body>
+</html>
+<!--
+1. html 요소 가지고 오기
+result, chance, user, play, reset
+
+2. random 수 만들기 1 ~ 100까지수
+randomNum() 함수안에 넣기
+
+Math.random 은 0보다 크고 1보다 작은 수가 나오니까 Math.floor 써줘야함.
+Math.floor(Math.random() * 100 + 1)
+0. 어쩌구 부터 0.9 어쩌구 가 나오는것임
+그래서 *100 을 해주는것
+그럼 0 ~ 99 어쩌구 나옴 1 ~ 100까지니까 +1
+
+
+3. play 라는 함수를 만들어서 사용자가 입력한 값을 가지고 옴
+
+4. 시작버튼을 클릭했을때 play 함수를 호출함
+
+5. play함수안에 입력받은 수랑 컴퓨터 수를 비교해서 computerNum > userNum = result에 up
+computerNum < userNum 은 down
+computerNum == userNum 은bingo
+나머지면 숫자를 입력해주세요
+
+6. up,down,bingo 이미지를 변경시킴
+
+7. 숫자가 1보다 작고, 100보다 크면 1부터 100까지의 수를 입력해주세요 라는 문구를 result 에출력
+
+8.찬스를 1씩 감소시키고 chance 자리에 남은 찬스 몇번이라고 출력
+
+9. chances 가 1보다 작으면 시작버튼 비활성화 시키기 chance자리에 gameover문자 출력
+
+10. user에 focus (뗐다가 다시 클릭하면) 하면 기존에 입력된 글자 지워짐
+
+11. reset 버튼을 클릭하면 reset 함수로 이동
+
+12. 초기화시키기
+-->
