@@ -9,6 +9,7 @@ body {
   color: #fff;
   overflow-x: hidden;
   font-family: "Jersey 10", sans-serif;
+  cursor: url("/img/cursor.png"), pointer;
 }
 
 .wrap {
