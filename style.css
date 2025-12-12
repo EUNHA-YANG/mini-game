@@ -757,6 +757,22 @@ button:active {
   .logo img {
     width: 280px;
   }
+  .bingo-title {
+    font-size: 52px;
+  }
+
+  .bingo-text {
+    font-size: 20px;
+  }
+
+  .bingo-answer {
+    font-size: 40px;
+  }
+
+  .bingo-button {
+    font-size: 20px;
+    padding: 20px 40px !important;
+  }
 }
 
 /* 반응형 - 모바일 */
@@ -854,6 +870,26 @@ button:active {
     padding: 10px 30px;
     margin-top: 20px;
   }
+  .bingo-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .bingo-text {
+    font-size: 18px;
+    margin: 8px 0;
+  }
+
+  .bingo-answer {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+
+  .bingo-button {
+    font-size: 18px;
+    padding: 18px 35px !important;
+    margin-top: 25px;
+  }
 }
 
 /* 반응형 - 아주 작은 모바일 */
@@ -917,5 +953,21 @@ button:active {
 
   .logo img {
     width: 150px;
+  }
+  .bingo-title {
+    font-size: 32px;
+  }
+
+  .bingo-text {
+    font-size: 15px;
+  }
+
+  .bingo-answer {
+    font-size: 28px;
+  }
+
+  .bingo-button {
+    font-size: 15px;
+    padding: 15px 30px !important;
   }
 }
