@@ -10,6 +10,9 @@ let startBtn = document.querySelector("#startBtn");
 let gameoverScreen = document.querySelector("#gameoverScreen");
 let gameoverAnswer = document.querySelector("#gameoverAnswer");
 let gameoverRestart = document.querySelector("#gameoverRestart");
+let bingoScreen = document.querySelector("#bingoScreen");
+let bingoAnswer = document.querySelector("#bingoAnswer");
+let bingoRestart = document.querySelector("#bingoRestart");
 let chances = 5;
 let computerNum;
 
@@ -68,6 +71,12 @@ function play() {
     result.textContent = "🎉 BINGO!";
     imgBox.src = "img/bingo.gif";
     playBtn.disabled = true;
+
+    // 빙고 화면 표시
+    setTimeout(() => {
+      bingoAnswer.textContent = computerNum;
+      bingoScreen.classList.add("show");
+    }, 1000);
     return;
   }
 
@@ -128,9 +137,16 @@ function reset() {
       `;
 
   playBtn.disabled = false;
+
+  // 화면 숨기기
+  gameoverScreen.classList.remove("show");
+  bingoScreen.classList.remove("show");
   randomNum();
 }
-
+bingoRestart.addEventListener("click", function () {
+  bingoScreen.classList.remove("show");
+  reset();
+});
 resetBtn.addEventListener("click", reset);
 
 // 게임오버 화면에서 재시작

@@ -495,6 +495,209 @@ button:active {
   box-shadow: 0 0 30px rgba(147, 51, 234, 1);
   transform: scale(1.05);
 }
+
+/* 빙고 성공 화면 */
+.bingo-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.bingo-screen.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bingo-title {
+  font-size: 64px;
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 1), 0 0 40px rgba(251, 191, 36, 0.8),
+    0 0 60px rgba(251, 191, 36, 0.6), 0 0 80px rgba(251, 191, 36, 0.4);
+  margin-bottom: 30px;
+  animation: bingoGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes bingoGlow {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 20px rgba(251, 191, 36, 1),
+      0 0 40px rgba(251, 191, 36, 0.8), 0 0 60px rgba(251, 191, 36, 0.6);
+  }
+  50% {
+    transform: scale(1.15) rotate(2deg);
+    text-shadow: 0 0 30px rgba(251, 191, 36, 1), 0 0 60px rgba(251, 191, 36, 1),
+      0 0 90px rgba(251, 191, 36, 0.8);
+  }
+}
+
+.bingo-text {
+  font-size: 24px;
+  color: #c084fc;
+  margin: 10px 0;
+  text-shadow: 0 0 15px rgba(192, 132, 252, 0.8);
+  animation: slideIn 0.8s ease-out;
+  font-family: "Nanum Gothic", "Malgun Gothic", sans-serif; /* 한글 폰트 */
+  font-weight: 700; /* 볼드체 */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bingo-answer {
+  font-size: 48px;
+  color: #10b981;
+  margin: 25px 0;
+  text-shadow: 0 0 25px rgba(16, 185, 129, 0.8),
+    0 0 50px rgba(16, 185, 129, 0.5);
+  animation: answerBounce 1s ease-in-out infinite;
+}
+
+@keyframes answerBounce {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.1) translateY(-10px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  75% {
+    transform: scale(1.1) translateY(-10px);
+  }
+}
+
+.bingo-fireworks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: explode 2s ease-out infinite;
+}
+
+.firework:nth-child(1) {
+  left: 20%;
+  top: 30%;
+  background: #fbbf24;
+  animation-delay: 0s;
+}
+
+.firework:nth-child(2) {
+  left: 80%;
+  top: 40%;
+  background: #c084fc;
+  animation-delay: 0.4s;
+}
+
+.firework:nth-child(3) {
+  left: 50%;
+  top: 20%;
+  background: #10b981;
+  animation-delay: 0.8s;
+}
+
+.firework:nth-child(4) {
+  left: 30%;
+  top: 60%;
+  background: #ef4444;
+  animation-delay: 1.2s;
+}
+
+.firework:nth-child(5) {
+  left: 70%;
+  top: 70%;
+  background: #3b82f6;
+  animation-delay: 1.6s;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 currentColor, 0 0 0 0 currentColor, 0 0 0 0 currentColor,
+      0 0 0 0 currentColor;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    box-shadow: 0 -100px 0 20px currentColor, 100px 0 0 20px currentColor,
+      0 100px 0 20px currentColor, -100px 0 0 20px currentColor,
+      70px -70px 0 15px currentColor, 70px 70px 0 15px currentColor,
+      -70px 70px 0 15px currentColor, -70px -70px 0 15px currentColor;
+  }
+}
+
+.bingo-button {
+  margin-top: 30px;
+  padding: 25px 50px !important;
+  font-size: 22px;
+  letter-spacing: 3px;
+  background: linear-gradient(145deg, #10b981, #059669);
+  border: 4px solid #34d399;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+  transition: all 0.3s ease;
+  line-height: 1 !important;
+  height: auto !important;
+  flex: none !important;
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 1), 0 0 60px rgba(16, 185, 129, 0.8);
+  }
+}
+
+.bingo-button:hover {
+  background: linear-gradient(145deg, #34d399, #10b981);
+  box-shadow: 0 0 40px rgba(52, 211, 153, 1);
+  transform: scale(1.1);
+}
+.bingo-title,
+.bingo-text,
+.bingo-answer,
+.bingo-button {
+  font-family: "Pixelify Sans", sans-serif;
+}
+
 /* 반응형 - 태블릿 */
 @media (max-width: 768px) {
   .container {

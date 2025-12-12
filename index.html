@@ -58,43 +58,22 @@
       <button class="gameover-button" id="gameoverRestart">재시작</button>
     </div>
 
+    <!-- 빙고 성공 화면 -->
+    <div class="bingo-screen" id="bingoScreen">
+      <div class="bingo-title">🎉 BINGO! 🎉</div>
+      <div class="bingo-text">축하합니다!</div>
+      <div class="bingo-text">정답을 맞추셨습니다!</div>
+      <div class="bingo-answer" id="bingoAnswer">0</div>
+      <div class="bingo-fireworks">
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+      </div>
+      <button class="bingo-button" id="bingoRestart">다시 도전하기</button>
+    </div>
+
     <script src="custom.js"></script>
   </body>
 </html>
-<!--
-1. html 요소 가지고 오기
-result, chance, user, play, reset
-
-2. random 수 만들기 1 ~ 100까지수
-randomNum() 함수안에 넣기
-
-Math.random 은 0보다 크고 1보다 작은 수가 나오니까 Math.floor 써줘야함.
-Math.floor(Math.random() * 100 + 1)
-0. 어쩌구 부터 0.9 어쩌구 가 나오는것임
-그래서 *100 을 해주는것
-그럼 0 ~ 99 어쩌구 나옴 1 ~ 100까지니까 +1
-
-
-3. play 라는 함수를 만들어서 사용자가 입력한 값을 가지고 옴
-
-4. 시작버튼을 클릭했을때 play 함수를 호출함
-
-5. play함수안에 입력받은 수랑 컴퓨터 수를 비교해서 computerNum > userNum = result에 up
-computerNum < userNum 은 down
-computerNum == userNum 은bingo
-나머지면 숫자를 입력해주세요
-
-6. up,down,bingo 이미지를 변경시킴
-
-7. 숫자가 1보다 작고, 100보다 크면 1부터 100까지의 수를 입력해주세요 라는 문구를 result 에출력
-
-8.찬스를 1씩 감소시키고 chance 자리에 남은 찬스 몇번이라고 출력
-
-9. chances 가 1보다 작으면 시작버튼 비활성화 시키기 chance자리에 gameover문자 출력
-
-10. user에 focus (뗐다가 다시 클릭하면) 하면 기존에 입력된 글자 지워짐
-
-11. reset 버튼을 클릭하면 reset 함수로 이동
-
-12. 초기화시키기
--->
